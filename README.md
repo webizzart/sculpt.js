@@ -1,4 +1,4 @@
-# webpack4-starter-kit
+# sculpt-js-kit
 
 Webpack 4 with webpack-dev-server configuration (and Web Components).
 
@@ -28,7 +28,7 @@ w4kit
 * Clone this repository
 
 ```
-git clone https://github.com/king-prawns/webpack4-starter-kit.git [your-app-name]
+git clone https://github.com/webizzart/sculpt.js.git [your-app-name]
 ```
 
 Remove the .git folder and change details within:
@@ -86,7 +86,3 @@ $ yarn httpserver
 * [Service Worker](https://github.com/NekR/offline-plugin)
 * Webpack Plugins: Html, Copy, MiniCssExtract, Define
 
-## TypeScript
-
-### Please go to [TS repo](https://github.com/king-prawns/webpack4-starter-kit-ts)
-# sculpt.js
