@@ -1,4 +1,4 @@
-import { JsonToElement, collectElements, renderChildren, isDescendant } from './utilis';
+import { JsonToElement, collectElements, renderChildren } from './utilis';
 import { mergeDiff } from './diff';
 
 export function defineComponent(options) {

@@ -1,6 +1,6 @@
 import './index.pcss';
 import  App from './components/my-app';
-import { defineComponent } from './components/my-app/customElement';
+import { defineComponent } from './components/my-app/sculpt';
 
 if (PRODUCTION) {
   require('offline-plugin/runtime').install();

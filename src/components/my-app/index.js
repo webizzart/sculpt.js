@@ -1,5 +1,5 @@
 import './style.pcss';
-import { CustomComponent, html } from './customElement';
+import { CustomComponent, html } from './sculpt';
 import HTML from './template.html';
 
 export default class MyApp extends CustomComponent {
@@ -80,6 +80,12 @@ export default class MyApp extends CustomComponent {
                   tag:"div",
                   key:1999,
                   innerHTML: this.state.template
+                },{
+                  tag:"img",
+                  key:918,
+                  src:"https://i.picsum.photos/id/1001/5616/3744.jpg?hmac=38lkvX7tHXmlNbI0HzZbtkJ6_wpWyqvkX4Ty6vYElZE",
+                  width:"300",
+                  height:"200"
                 }
               ]
             }
