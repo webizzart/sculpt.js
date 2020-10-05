@@ -1,11 +1,17 @@
 import './index.pcss';
-import  App from './components/my-app';
-import { defineComponent } from './components/my-app/sculpt';
-
+import  App from './pages/home';
+import { defineComponent } from './sculpt/sculpt';
+import Image from './components/Image/Image';
 if (PRODUCTION) {
   require('offline-plugin/runtime').install();
 }
-
-[{Selector:"my-app",Component:App}].forEach((c=>defineComponent(c)));
-
-// customElements.define('my-app', MyApp);
+//pages
+[
+  {Selector:`my-app`,Component:App}
+]
+.forEach((c=>defineComponent(c)));
+//components
+[
+  {Selector:`image-app`,Component:Image}
+]
+.forEach((c=>defineComponent(c)));

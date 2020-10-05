@@ -1,5 +1,5 @@
 import './style.pcss';
-import { CustomComponent, html } from './sculpt';
+import { CustomComponent, html } from '../../sculpt/sculpt';
 import HTML from './template.html';
 
 export default class MyApp extends CustomComponent {
@@ -28,7 +28,7 @@ export default class MyApp extends CustomComponent {
       console.log(this.rendered);
       ++this.state.counter;
     }
-
+    this.counter = 1;
     this.rendered = {
       tag: "div",
       id: "root",
@@ -81,7 +81,7 @@ export default class MyApp extends CustomComponent {
                   key:1999,
                   innerHTML: this.state.template
                 },{
-                  tag:"img",
+                  tag:"image-app",
                   key:918,
                   src:"https://i.picsum.photos/id/1001/5616/3744.jpg?hmac=38lkvX7tHXmlNbI0HzZbtkJ6_wpWyqvkX4Ty6vYElZE",
                   width:"300",

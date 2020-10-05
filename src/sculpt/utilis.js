@@ -98,6 +98,7 @@ export const collectElements = (node) => {
             nodes.push(...subNodes);
         }
     });
+    
     return nodes;
 }
 export const renderChildren = (node, options) => {

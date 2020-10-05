@@ -15,15 +15,8 @@ export function mergeDiff(newNodes, oldNodes) {
         lastIndex = findIndex;
         if (lastNode.element.nodeType === 1 && node.element.nodeType === 1) {
           //diff attributes..
-          Array.from(node.element.attributes).forEach(attr => {
-            const oldAttr = lastNode.element.getAttribute(attr.name);
-            const newAttr = node.element.getAttribute(attr.name);
-            
-            if (oldAttr !== newAttr) {
-              lastNode.element.setAttribute(attr.name, newAttr);
-              console.warn("[diff] attr changed");
-            }
-          })
+          diffAttrs(node, lastNode);
+          //TODO: diff tag name
         }
         if (lastNode.element.firstChild && node.element && node.element.firstChild && node.element.firstChild.nodeType === 3 && lastNode.element.firstChild.nodeType === 3 && node.element.firstChild.textContent !== lastNode.element.firstChild.textContent) {
           console.warn("[diff] text was replaced");
@@ -47,4 +40,15 @@ export function mergeDiff(newNodes, oldNodes) {
     node.element.remove();
   });
 
+}
+
+function diffAttrs(node, lastNode) {
+  Array.from(node.element.attributes).forEach(attr => {
+    const oldAttr = lastNode.element.getAttribute(attr.name);
+    const newAttr = node.element.getAttribute(attr.name);
+    if (oldAttr !== newAttr) {
+      lastNode.element.setAttribute(attr.name, newAttr);
+      console.warn("[diff] attr changed");
+    }
+  });
 }

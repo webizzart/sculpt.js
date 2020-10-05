@@ -22,10 +22,14 @@ export class CustomComponent extends HTMLElement {
 
     if (typeof (newContent) === "object") {
       //TODO: handle strings..
-      rendered = this.JsonToElement.call(this, newContent);
+      const fragment  = {
+        tag:"fragment",
+        children:[newContent]
+      }
+      rendered = this.JsonToElement.call(this, fragment);
     }
-
     const newNodes = collectElements(rendered);
+    //Create dom fragment
     if (this.present) {
       mergeDiff(newNodes, this.present);
     }
@@ -44,9 +48,8 @@ export class CustomComponent extends HTMLElement {
       set: (obj, prop, newval) => {
         // let oldval = obj[prop];
         obj[prop] = newval;
-        setTimeout(() => {
+        console.log(`${this.nodeName} render from connectedcallback`)
           this.__renderContent__();
-        }, 0);
         // Indicate success
         return true;
       }
@@ -54,9 +57,8 @@ export class CustomComponent extends HTMLElement {
 
     this.state = new Proxy(this.state, handler2);
     if (typeof (this.render) === 'function') {
-      setTimeout(() => {
+      console.log(`${this.nodeName} first render into the dom`)
         this.__renderContent__();
-      }, 0);
     }else{
       console.error("please use declare render function..")
     }
