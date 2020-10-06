@@ -1,6 +1,6 @@
 import { JsonObjectToStyleString } from "./style";
 import { valueChanger } from "./valueChanger";
-import {camelCaseToDash} from './strings';
+import { camelCaseToDash } from './strings';
 
 export function JsonToElement(jsonObject, options) {
     if (!options) options = {};
@@ -33,15 +33,15 @@ export function JsonToElement(jsonObject, options) {
             element.key = jsElement.key;
         }
 
-        const readOnlyKeys = ["children", "classList", "attributes", "style","children","type"];
+        const readOnlyKeys = ["children", "classList", "attributes", "style", "children", "type"];
         for (const key in jsElement) {
             let value = jsElement[key];
             if (!readOnlyKeys.includes(key)) {
                 if (typeof (value) === "string") {
-                    value = valueChanger.call(this, value)
-                }else if(typeof(value) === "object"){
+                    value = valueChanger.call(this, value);
+                } else if (typeof (value) === "object") {
                     const parse = JSON.stringify(value);
-                    const stringify = valueChanger.call(this,parse);
+                    const stringify = valueChanger.call(this, parse);
                     value = JSON.parse(stringify);
                 }
                 element[key] = value;
@@ -102,7 +102,7 @@ export const collectElements = (node) => {
             nodes.push(...subNodes);
         }
     });
-    
+
     return nodes;
 }
 export const renderChildren = (node, options) => {
