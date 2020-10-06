@@ -1,5 +1,5 @@
 export function valueChanger(value){
-    var regExp = /{([^}]+)}}/g;
+    var regExp = /{{([^}]+)}}/gm;
     const all = value.match(regExp);
     
     if(Array.isArray(all))
