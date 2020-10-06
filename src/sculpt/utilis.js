@@ -65,9 +65,6 @@ export function JsonToElement(jsonObject, options) {
         //TODO: other attrs...
     }
     const createHtmlElement = (jsElement) => {
-        if(jsElement.tag === "image-app") {
-            debugger
-        }
         const nodeType = jsElement.tag;
         let element;
 
