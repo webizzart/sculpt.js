@@ -33,13 +33,17 @@ export function JsonToElement(jsonObject, options) {
             element.key = jsElement.key;
         }
 
-        const readOnlyKeys = ["children", "classList", "attributes", "style"];
+        const readOnlyKeys = ["children", "classList", "attributes", "style","children","type"];
         for (const key in jsElement) {
             let value = jsElement[key];
-            if (typeof (value) === "string") {
-                value = valueChanger.call(this, value)
-            }
             if (!readOnlyKeys.includes(key)) {
+                if (typeof (value) === "string") {
+                    value = valueChanger.call(this, value)
+                }else if(typeof(value) === "object"){
+                    const parse = JSON.stringify(value);
+                    const stringify = valueChanger.call(this,parse);
+                    value = JSON.parse(stringify);
+                }
                 element[key] = value;
             }
         }
@@ -61,6 +65,9 @@ export function JsonToElement(jsonObject, options) {
         //TODO: other attrs...
     }
     const createHtmlElement = (jsElement) => {
+        if(jsElement.tag === "image-app") {
+            debugger
+        }
         const nodeType = jsElement.tag;
         let element;
 
