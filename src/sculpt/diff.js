@@ -2,7 +2,7 @@ export function mergeDiff(newNodes, oldNodes) {
   const keys = [];
   let lastNode;
   let lastIndex = 0;
-  let keepOnSameSort = true;
+  
   //from the inner element to the wrapper
   newNodes.reverse().forEach((node, index) => {
     if (node.key) {
