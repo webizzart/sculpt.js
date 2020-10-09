@@ -1,5 +1,5 @@
 export function valueChanger(value){
-    var regExp = /{([^}]+)}}/g;
+    var regExp = /{{([^}]+)}}/gm;
     const all = value.match(regExp);
     
     if(Array.isArray(all))
@@ -9,7 +9,9 @@ export function valueChanger(value){
         let result = this;
         splits.forEach((r,index)=>{
             if(r ==="this") return;
-            result = result[r];
+            if(result[r]){
+                result = result[r];
+            }
         })
         value = value.replace(`{{${rep}}}`,result);
     });
